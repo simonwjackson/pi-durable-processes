@@ -1,0 +1,79 @@
+{
+  "name": "@simonwjackson/pi-durable-processes",
+  "version": "0.1.0",
+  "description": "Durable managed processes for pi and embedded agent hosts.",
+  "license": "MIT",
+  "author": "Simon W. Jackson",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/simonwjackson/pi-durable-processes.git"
+  },
+  "exports": {
+    ".": "./dist/index.js",
+    "./testing": "./dist/managedProcesses.testSupport.js",
+    "./extension": "./dist/extension.js"
+  },
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "src",
+    "skills",
+    "LICENSE",
+    "README.md"
+  ],
+  "pi": {
+    "extensions": [
+      "./src/extension.ts"
+    ],
+    "skills": [
+      "./skills"
+    ]
+  },
+  "keywords": [
+    "pi-package",
+    "pi",
+    "durable-processes"
+  ],
+  "engines": {
+    "node": ">=22.19.0"
+  },
+  "os": [
+    "!win32"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "prepare": "npm run build",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "lint": "eslint src vitest.config.ts"
+  },
+  "dependencies": {
+    "proper-lockfile": "4.1.2",
+    "zod": "4.6.5"
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": "*",
+    "typebox": "*",
+    "@earendil-works/pi-ai": "*"
+  },
+  "devDependencies": {
+    "@earendil-works/chord": "1.1.0",
+    "@earendil-works/pi-agent-core": "1.1.0",
+    "@earendil-works/pi-ai": "1.1.0",
+    "@earendil-works/pi-codemode": "1.1.0",
+    "@earendil-works/pi-coding-agent": "1.1.0",
+    "@earendil-works/pi-mcp": "1.1.0",
+    "@earendil-works/pi-telemetry": "1.1.0",
+    "@earendil-works/pi-tui": "1.1.0",
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^24.13.3",
+    "@types/proper-lockfile": "^4.1.4",
+    "eslint": "^10.6.0",
+    "globals": "^17.7.0",
+    "typebox": "1.3.27",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.63.0",
+    "vitest": "^4.1.10"
+  }
+}
